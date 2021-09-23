@@ -1,0 +1,13 @@
+<button
+  mat-menu-item
+  class="container" (click)="navigate()"
+  [disabled]="link.length === 0"
+  [ngClass]="{'active-link': link.length > 0}" >
+  <span class="icon">
+    <img class="image" [src]="icon" alt="icon">
+  </span>
+  <span class="info" >
+    {{ info }}
+  </span>
+</button>
+

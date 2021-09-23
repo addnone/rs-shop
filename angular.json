@@ -76,7 +76,8 @@
               "browserTarget": "rs-shop:build:production"
             },
             "development": {
-              "browserTarget": "rs-shop:build:development"
+              "browserTarget": "rs-shop:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
