@@ -7,6 +7,9 @@ import { PopularProductsBlockComponent } from './pages/main-page/popular-product
 import { MainSliderBlockComponent } from './pages/main-page/main-slider-block/main-slider-block.component';
 import { PoopularProductsSlideComponent } from './pages/main-page/popular-products-block/popular-products-slide/poopular-products-slide.component';
 import { CategoriesPageComponent } from './pages/categories-page/categories-page.component';
+import { ProductListPageComponent } from './pages/product-list-page/product-list-page.component';
+import { ProductListItemComponent } from './pages/product-list-page/product-list-item/product-list-item.component';
+import { CommonHeaderFooterLayontComponent } from './layonts/common-header-footer-layont/common-header-footer-layont.component';
 
 
 
@@ -17,6 +20,9 @@ import { CategoriesPageComponent } from './pages/categories-page/categories-page
     PopularProductsBlockComponent,
     PoopularProductsSlideComponent,
     CategoriesPageComponent,
+    ProductListPageComponent,
+    ProductListItemComponent,
+    CommonHeaderFooterLayontComponent,
   ],
   imports: [
     CommonModule,

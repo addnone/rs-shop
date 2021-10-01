@@ -1,23 +1,31 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-btn',
   template: `
-    <a mat-raised-button [routerLink]="[routeTo() | async]">Каталог товаров</a>
+    <a mat-raised-button [routerLink]="[routeLink]">Каталог товаров</a>
   `,
   styles: [
   ],
 })
-export class CategoryBtnComponent  {
+export class CategoryBtnComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  routeLink = '';
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit(): void {
+    this.routeTo().subscribe((value) => {
+      this.routeLink = value;
+    });
+  }
 
   isActive() {
-    return this.route.url.pipe(
+    return this.getCurUrlPath().pipe(
       map((value) => {
-        return value[0]?.path === 'categories';
+        return value === 'categories';
       }),
     );
   }
@@ -26,6 +34,25 @@ export class CategoryBtnComponent  {
     return this.isActive().pipe(
       map((value) => {
         return value ? '' : '/categories';
+      }),
+    );
+  }
+
+  getCurUrlPath() {
+    return this.router.events.pipe(
+      map((value) => {
+        return value;
+      }),
+      filter(e => e instanceof NavigationEnd),
+      map(() => this.route),
+      switchMap(route => {
+        while (route.firstChild) {
+          route = route.firstChild;
+        }
+        return route.url;
+      }),
+      map((value) => {
+        return value[0].path;
       }),
     );
   }
