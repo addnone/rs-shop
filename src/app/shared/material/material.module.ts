@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatExpansionModule,
     MatDividerModule,
     MatListModule,
+    MatCarouselModule.forRoot(),
   ],
   exports: [
     MatIconModule,
@@ -28,6 +30,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatExpansionModule,
     MatDividerModule,
     MatListModule,
+    MatCarouselModule,
   ],
 })
 export class MaterialModule { }
