@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable, zip } from 'rxjs';
+import { ICategory } from '../models/category.model';
 import { IProduct } from '../models/product.model';
 
 @Injectable({
@@ -43,5 +44,11 @@ export class ApiService {
     });
 
     return zip(...products$);
+  }
+
+  getCategories() {
+    const url = 'api/categories';
+
+    return this.http.get<ICategory[]>(url);
   }
 }

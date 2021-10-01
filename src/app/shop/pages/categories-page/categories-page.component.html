@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container">
+  <div class="category-block">
+    <div class="category-item"
+      *ngFor="let category of categories$ | async"
+      (mouseenter)="setCurCategory(category)"
+      [ngClass]="{'category-item-activated': category.id === curCategory?.id}"
+    >
+      {{category.name}}
+    </div>
+  </div>
+  <div class="subcategory-block" *ngIf="curCategory !== undefined">
+    <div class="subcategory-title">{{curCategory.name}}</div>
+    <div class="subcatogory-container" *ngFor="let subCategory of curCategory.subCategories">
+      <a mat-button [routerLink]="[createProductsLink(curCategory.id, subCategory.id)]" >{{subCategory.name}}</a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav-block',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-block.component.scss'],
 })
 export class NavBlockComponent  {
+
+  constructor(private route: ActivatedRoute) {}
+
 }
