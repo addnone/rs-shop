@@ -1,7 +1,7 @@
 <div class="image-container">
   <img class="image" [src]="product.imageUrls[0]" alt="product">
 </div>
-<a class="name" [href]="''">{{(product.name.length > 40) ? (product.name | slice:0:40) : (product.name)}}</a>
+<a class="name" [routerLink]="[createProdictDetailsLink()]">{{(product.name.length > 40) ? (product.name | slice:0:40) : (product.name)}}</a>
 <div class="availability">
   <div class="availability-content" *ngIf="product.availableAmount > 0">В наличии</div>
 </div>

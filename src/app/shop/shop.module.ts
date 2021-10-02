@@ -10,6 +10,7 @@ import { CategoriesPageComponent } from './pages/categories-page/categories-page
 import { ProductListPageComponent } from './pages/product-list-page/product-list-page.component';
 import { ProductListItemComponent } from './pages/product-list-page/product-list-item/product-list-item.component';
 import { CommonHeaderFooterLayontComponent } from './layonts/common-header-footer-layont/common-header-footer-layont.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 
 
@@ -23,6 +24,7 @@ import { CommonHeaderFooterLayontComponent } from './layonts/common-header-foote
     ProductListPageComponent,
     ProductListItemComponent,
     CommonHeaderFooterLayontComponent,
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,

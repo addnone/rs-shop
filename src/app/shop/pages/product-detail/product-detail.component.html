@@ -1,0 +1,28 @@
+<mat-card class="product-card" *ngIf="product !== undefined">
+  <mat-card-header>
+    <mat-card-title>{{product.name}}</mat-card-title>
+  </mat-card-header>
+  <div class="main-image-container">
+    <img class="main-image" mat-card-image [src]="mainImageUrl" alt="Photo of a Shiba Inu">
+  </div>
+  <mat-card-content>
+    <div class="miniature-list">
+      <div class="miniature-item"
+        *ngFor="let imageUrl of product.imageUrls"
+        [ngClass]="{'miniature-item-active': mainImageUrl === imageUrl}"
+        (mouseenter)="changeMainImageUrl(imageUrl)"
+        >
+        <img class="miniature-image" [src]="imageUrl" alt="miniature">
+      </div>
+    </div>
+    <p>
+      {{product.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button  mat-raised-button color="accent" [disabled]="product.isInCart">В корзину</button>
+    <button class="favorite-btn" mat-icon-button color="warn" [disabled]="product.isFavorite">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

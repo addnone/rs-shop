@@ -15,4 +15,7 @@ export class ProductListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createProdictDetailsLink() {
+    return `/product/${this.product.id}`;
+  }
 }
