@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { IUserLogin } from '../models/user.model';
 import { UserApiService } from './user-api.service';
 
@@ -23,9 +24,14 @@ export class UserAuthService {
   }
 
   login(data: IUserLogin) {
-    this.api.login(data).subscribe((response) => {
-      localStorage.setItem(this.tokenName, response.token);
-    });
+
+    return this.api.login(data).pipe(
+      tap((tokenResponse) => {
+        console.log('in login');
+        localStorage.setItem(this.tokenName, tokenResponse.token);
+        this.isLoginSubject.next(true);
+      }),
+    );
   }
 
   logout() {
