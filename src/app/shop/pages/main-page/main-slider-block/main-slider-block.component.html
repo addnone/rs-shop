@@ -22,7 +22,7 @@
   overlayColor="#00000040"
   [hideOverlay]="true"
   >
-  <div class="slide-container">
+  <div class="slide-container" [routerLink]="[('/product/'+product.id)]">
     <div class="slide-image-container" [style]="">
       <img class='slide-image' [src]="product.imageUrls[0]" alt="">
     </div>

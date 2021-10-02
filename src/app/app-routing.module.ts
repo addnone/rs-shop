@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonHeaderFooterLayontComponent } from './shop/layonts/common-header-footer-layont/common-header-footer-layont.component';
 import { CategoriesPageComponent } from './shop/pages/categories-page/categories-page.component';
 import { MainPageComponent } from './shop/pages/main-page/main-page.component';
-import { ProductDetailComponent } from './shop/pages/product-detail/product-detail.component';
+import { ProductDetailPageComponent } from './shop/pages/product-detail-page/product-detail-page.component';
 import { ProductListPageComponent } from './shop/pages/product-list-page/product-list-page.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'main', component: MainPageComponent },
     { path: 'categories', component: CategoriesPageComponent },
     { path: 'products/:categoryId/:subCategoryId', component: ProductListPageComponent },
-    { path: 'product/:productId', component: ProductDetailComponent },
+    { path: 'product/:productId', component: ProductDetailPageComponent },
   ] },
 
 ];

@@ -15,6 +15,11 @@
   display: flex;
   width: 30%;
   height: 30%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(233, 230, 230);
+  }
 }
 
 .slide-item-image-container {
