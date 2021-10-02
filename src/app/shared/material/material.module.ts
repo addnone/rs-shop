@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +22,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatDividerModule,
     MatListModule,
     MatCarouselModule.forRoot(),
+    MatCardModule,
   ],
   exports: [
     MatIconModule,
@@ -31,6 +33,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatDividerModule,
     MatListModule,
     MatCarouselModule,
+    MatCardModule,
   ],
 })
 export class MaterialModule { }

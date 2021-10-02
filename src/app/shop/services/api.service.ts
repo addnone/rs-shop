@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable, zip } from 'rxjs';
+import { Observable, zip } from 'rxjs';
 import { ICategory } from '../models/category.model';
 import { IProduct } from '../models/product.model';
 
@@ -50,5 +50,19 @@ export class ApiService {
     const url = 'api/categories';
 
     return this.http.get<ICategory[]>(url);
+  }
+
+  getProductsByCategoryAndSubCategory(categoryId: string, subcategory: string, page?: number, count?: number, sortBy?: string, reverse?: boolean) {
+
+    const baseUrl = `api/goods/category/${categoryId}/${subcategory}`;
+    let params = new HttpParams();
+    if (page !== undefined) params = params.set('start', page);
+    if (count !== undefined) params = params.set('count', count);
+    if (sortBy !== undefined) params = params.set('sortBy', sortBy);
+    if (reverse !== undefined) params = params.set('reverse', reverse);
+
+    const url = baseUrl;
+    // console.log(url);
+    return this.http.get<IProduct[]>(url, { params });
   }
 }
