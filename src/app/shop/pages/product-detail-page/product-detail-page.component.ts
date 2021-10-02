@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserApiService } from 'src/app/user/services/user-api.service';
 import { IProduct } from '../../models/product.model';
 import { ApiService } from '../../services/api.service';
 
@@ -13,7 +14,7 @@ export class ProductDetailPageComponent implements OnInit {
 
   mainImageUrl?: string;
 
-  constructor(private route: ActivatedRoute, private api: ApiService) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private userApi: UserApiService) { }
 
   ngOnInit(): void {
 
@@ -21,11 +22,15 @@ export class ProductDetailPageComponent implements OnInit {
       const productId = params.productId;
 
       if (productId !== undefined) {
-        this.api.getProduct(productId).subscribe((value) => {
-          this.product = value;
-          this.mainImageUrl = this.product.imageUrls[0];
-        });
+        this.updateProduct(productId);
       }
+    });
+  }
+
+  updateProduct(productId: string) {
+    this.api.getProduct(productId).subscribe((value) => {
+      this.product = value;
+      this.mainImageUrl = this.product.imageUrls[0];
     });
   }
 
@@ -33,4 +38,17 @@ export class ProductDetailPageComponent implements OnInit {
     this.mainImageUrl = newUrl;
   }
 
+  onAddToFavorites() {
+    if (!this.product) return;
+    this.userApi.addToFavorites(this.product.id).subscribe(
+      () => this.updateProduct(this.product!.id),
+    );
+  }
+
+  onAddToCart() {
+    if (!this.product) return;
+    this.userApi.addToCart(this.product.id).subscribe(
+      () => this.updateProduct(this.product!.id),
+    );
+  }
 }

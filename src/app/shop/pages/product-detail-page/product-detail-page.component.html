@@ -20,8 +20,8 @@
     </p>
   </mat-card-content>
   <mat-card-actions class="actions">
-    <button  mat-raised-button color="accent" [disabled]="product.isInCart">В корзину</button>
-    <button class="favorite-btn" mat-icon-button color="warn" [disabled]="product.isFavorite">
+    <button  mat-raised-button color="accent" [disabled]="product.isInCart" (click)="onAddToCart()">В корзину</button>
+    <button class="favorite-btn" mat-icon-button color="warn" [disabled]="product.isFavorite" (click)="onAddToFavorites()">
       <mat-icon>favorite</mat-icon>
     </button>
   </mat-card-actions>
