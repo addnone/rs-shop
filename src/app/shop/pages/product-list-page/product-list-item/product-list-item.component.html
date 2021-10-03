@@ -1,0 +1,12 @@
+<div class="image-container">
+  <img class="image" [src]="product.imageUrls[0]" alt="product">
+</div>
+<a class="name" [routerLink]="[createProdictDetailsLink()]">{{(product.name.length > 40) ? (product.name | slice:0:40) : (product.name)}}</a>
+<div class="availability">
+  <div class="availability-content" *ngIf="product.availableAmount > 0">В наличии</div>
+</div>
+<div class="price">{{product.price}} р.</div>
+<div class="rating">
+  <mat-icon *ngFor="let item of [].constructor(product.rating)">star</mat-icon>
+</div>
+<button class="bucket-btn" mat-raised-button color="accent" (click)="onAddToCart()" [disabled]="userInfoService.isInCart(product.id)">В корзину</button>

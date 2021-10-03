@@ -1,0 +1,12 @@
+<div class="slide-container">
+  <div class="slide-item" *ngFor="let item of products$ | async" [routerLink]="[('/product/'+item.id)]">
+    <div class="slide-item-image-container">
+      <img class="slide-item-image" [src]="item.imageUrls[0]" alt="product">
+    </div>
+    <div class="slide-item-info">
+      <div class="slide-item-info-name">{{item.name}}</div>
+      <div class="slide-item-info-count">В наличии: <b>{{item.availableAmount}}</b></div>
+      <div class="slide-item-info-price">Цена: <b>{{item.price}}</b></div>
+    </div>
+  </div>
+</div>

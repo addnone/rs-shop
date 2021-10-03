@@ -1,0 +1,34 @@
+.container {
+  padding: 50px 100px;
+  display: flex;
+  min-height: 400px;
+}
+
+.category-block {
+  display: flex;
+  flex-direction: column;
+
+  :first-child {
+    margin-top: 0;
+  }
+}
+
+.category-item {
+  margin-top: 20px;
+
+  &-activated {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    color: #994894;
+    font-weight: bold;
+  }
+}
+
+.subcategory-block {
+  margin-left: 50px;
+}
+
+.subcategory-title {
+  color: #994894;
+  font-weight: bold;
+}

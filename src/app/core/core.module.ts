@@ -9,6 +9,9 @@ import { SocialLinkComponent } from './components/social-link/social-link.compon
 import { SearchInputComponent } from './components/header/components/nav-block/search-input/search-input.component';
 import { SharedModule } from '../shared/shared.module';
 import { MainCategoriesBlockComponent } from './components/header/components/main-categories-block/main-categories-block.component';
+import { CategoryBtnComponent } from './components/header/components/nav-block/category-btn/category-btn.component';
+import { AccountComponent } from './components/header/components/nav-block/account/account.component';
+import { LoginDialogComponent } from './components/header/components/nav-block/account/login-dialog/login-dialog.component';
 
 
 
@@ -22,6 +25,9 @@ import { MainCategoriesBlockComponent } from './components/header/components/mai
     SocialLinkComponent,
     SearchInputComponent,
     MainCategoriesBlockComponent,
+    CategoryBtnComponent,
+    AccountComponent,
+    LoginDialogComponent,
   ],
   imports: [
     CommonModule,

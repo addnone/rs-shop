@@ -28,7 +28,7 @@ const MIN_LETTER_COUNT_FOR_SEARCH = 3;
         </mat-form-field>
       </mat-expansion-panel-header>
       <mat-list>
-        <a class="product-link" *ngFor="let product of (productList$ | async)" href="">
+        <a class="product-link" *ngFor="let product of (productList$ | async)" [routerLink]="[('/product/'+product.id)]" (click)="searchText$.next('')">
           <mat-divider></mat-divider>
               <mat-list-item class="product-item">
                 <div class="product-image" [style.backgroundImage]="'url( '+product.imageUrls[0]+' )'">

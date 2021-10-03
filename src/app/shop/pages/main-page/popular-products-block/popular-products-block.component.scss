@@ -1,0 +1,23 @@
+:host {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #E4556D;
+  font-weight: bold;
+  font-size: 200%;
+}
+
+.carousel {
+  margin-top: 30px;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+.slide {
+  min-width: 100%;
+  min-height: 100%;
+}

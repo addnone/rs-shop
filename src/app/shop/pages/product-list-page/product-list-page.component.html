@@ -1,0 +1,4 @@
+<div class="products-container">
+  <app-product-list-item [product]="product" *ngFor="let product of products"></app-product-list-item>
+</div>
+<button class="more-bnt" mat-raised-button color="accent" (click)="addProducts()">Еще</button>

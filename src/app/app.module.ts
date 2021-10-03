@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ShopModule } from './shop/shop.module';
+import { UserTokenInterceptor } from './user/interceptors/user-token.interceptor';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -21,8 +23,13 @@ import { ShopModule } from './shop/shop.module';
     ShopModule,
     CoreModule,
     HttpClientModule,
+    UserModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: UserTokenInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
