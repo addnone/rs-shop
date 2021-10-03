@@ -35,15 +35,10 @@ export class ProductListPageComponent implements OnInit {
   callApi() {
     return this.route.url.pipe(
       switchMap((urlSegment) => {
-        // console.log(urlSegment[1].path, urlSegment[2].path, this.curPage, COUNT_PER_PAGE, this.sortBy, this.reverse);
         return this.api.getProductsByCategoryAndSubCategory(urlSegment[1].path, urlSegment[2].path, this.curPage, COUNT_PER_PAGE, this.sortBy, this.reverse);
       }),
     );
   }
-
-  // setProducts() {
-  //   this.products$ = this.callApi();
-  // }
 
   setProducts() {
     this.callApi().subscribe((value) => {
@@ -55,22 +50,6 @@ export class ProductListPageComponent implements OnInit {
     this.curPage += 1;
     this.callApi().subscribe((value) => {
       this.products = this.products.concat(value);
-    })
+    });
   }
-
-  // changePage(diff: number) {
-  //   this.curPage += diff;
-  //   this.setProducts();
-  // }
-
-  // setSortBy(value: ProductFieldEnum) {
-  //   this.sortBy = value;
-  //   this.setProducts();
-  // }
-
-  // setReverse(value?: boolean) {
-  //   this.reverse = value;
-  //   this.setProducts();
-  // }
-
 }

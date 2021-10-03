@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IProduct } from 'src/app/shop/models/product.model';
 import { UserApiService } from 'src/app/user/services/user-api.service';
@@ -10,7 +10,7 @@ import { UserInfoService } from 'src/app/user/services/user-info.service';
   templateUrl: './product-list-item.component.html',
   styleUrls: ['./product-list-item.component.scss'],
 })
-export class ProductListItemComponent implements OnInit {
+export class ProductListItemComponent  {
 
   @Input() product!: IProduct;
 
@@ -20,9 +20,6 @@ export class ProductListItemComponent implements OnInit {
     private userAuthService: UserAuthService,
     private snackBar: MatSnackBar,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   createProdictDetailsLink() {
     return `/product/${this.product.id}`;

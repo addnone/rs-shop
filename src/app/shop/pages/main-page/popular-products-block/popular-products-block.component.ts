@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/shop/services/api.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ApiService } from 'src/app/shop/services/api.service';
   templateUrl: './popular-products-block.component.html',
   styleUrls: ['./popular-products-block.component.scss'],
 })
-export class PopularProductsBlockComponent implements OnInit {
+export class PopularProductsBlockComponent  {
 
   productIdChunks = [
     [
@@ -28,9 +28,6 @@ export class PopularProductsBlockComponent implements OnInit {
   ];
 
   constructor(public api: ApiService) { }
-
-  ngOnInit(): void {
-  }
 
   getProduct(id: string) {
     return this.api.getProduct(id);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/shop/services/api.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ApiService } from 'src/app/shop/services/api.service';
   templateUrl: './main-slider-block.component.html',
   styleUrls: ['./main-slider-block.component.scss'],
 })
-export class MainSliderBlockComponent implements OnInit {
+export class MainSliderBlockComponent  {
 
   productIds = [
     '612e05c57e5cfaba3c14ed5c',
@@ -19,8 +19,5 @@ export class MainSliderBlockComponent implements OnInit {
   products$ = this.api.getProductList(this.productIds);
 
   constructor(public api: ApiService) { }
-
-  ngOnInit(): void {
-  }
 
 }
