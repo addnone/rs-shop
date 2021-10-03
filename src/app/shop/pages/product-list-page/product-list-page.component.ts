@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { UserInfoService } from 'src/app/user/services/user-info.service';
 import { ProductFieldEnum } from '../../enums/product-field.enum';
 import { IProduct } from '../../models/product.model';
 import { ApiService } from '../../services/api.service';
@@ -24,10 +25,11 @@ export class ProductListPageComponent implements OnInit {
 
   reverse?: boolean;
 
-  constructor(private api: ApiService, private route: ActivatedRoute) { }
+  constructor(private api: ApiService, private route: ActivatedRoute, private userInfoService: UserInfoService) { }
 
   ngOnInit(): void {
     this.setProducts();
+    this.userInfoService.updateData();
   }
 
   callApi() {

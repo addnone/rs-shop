@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { UserApiService } from 'src/app/user/services/user-api.service';
+import { UserInfoService } from 'src/app/user/services/user-info.service';
 import { IProduct } from '../../models/product.model';
 import { ApiService } from '../../services/api.service';
 
@@ -14,7 +16,13 @@ export class ProductDetailPageComponent implements OnInit {
 
   mainImageUrl?: string;
 
-  constructor(private route: ActivatedRoute, private api: ApiService, private userApi: UserApiService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService,
+    private userApi: UserApiService,
+    public userInfoService: UserInfoService,
+    private snackBar: MatSnackBar,
+  ) { }
 
   ngOnInit(): void {
 
@@ -23,6 +31,7 @@ export class ProductDetailPageComponent implements OnInit {
 
       if (productId !== undefined) {
         this.updateProduct(productId);
+        this.userInfoService.updateData();
       }
     });
   }
@@ -40,15 +49,15 @@ export class ProductDetailPageComponent implements OnInit {
 
   onAddToFavorites() {
     if (!this.product) return;
-    this.userApi.addToFavorites(this.product.id).subscribe(
-      () => this.updateProduct(this.product!.id),
-    );
+    this.userApi.unauthorizedHandler(this.userApi.addToFavorites(this.product.id)).subscribe();
+    this.userInfoService.updateData();
+    this.snackBar.open('Товар добавлен в избранное');
   }
 
   onAddToCart() {
     if (!this.product) return;
-    this.userApi.addToCart(this.product.id).subscribe(
-      () => this.updateProduct(this.product!.id),
-    );
+    this.userApi.unauthorizedHandler(this.userApi.addToCart(this.product.id)).subscribe();
+    this.userInfoService.updateData();
+    this.snackBar.open('Товар добавлен в корзину');
   }
 }

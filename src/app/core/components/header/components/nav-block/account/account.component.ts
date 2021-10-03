@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject } from 'rxjs';
 import { IUserInfo } from 'src/app/user/models/user.model';
 import { UserApiService } from 'src/app/user/services/user-api.service';
 import { UserAuthService } from 'src/app/user/services/user-auth.service';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,7 +9,7 @@ import { UserAuthService } from 'src/app/user/services/user-auth.service';
   templateUrl: './login-dialog.component.html',
   styleUrls: ['./login-dialog.component.scss'],
 })
-export class LoginDialogComponent implements OnInit {
+export class LoginDialogComponent  {
 
   formGroup = this.formBuilder.group({
     login: new FormControl('', Validators.required),
@@ -27,8 +27,7 @@ export class LoginDialogComponent implements OnInit {
     private snackBar: MatSnackBar,
   ) { }
 
-  ngOnInit(): void {
-  }
+
 
   onNoClick(): void {
     this.dialogRef.close();

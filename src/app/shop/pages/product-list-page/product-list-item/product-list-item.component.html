@@ -9,4 +9,4 @@
 <div class="rating">
   <mat-icon *ngFor="let item of [].constructor(product.rating)">star</mat-icon>
 </div>
-<button class="bucket-btn" mat-raised-button color="accent">В корзину</button>
+<button class="bucket-btn" mat-raised-button color="accent" (click)="onAddToCart()" [disabled]="userInfoService.isInCart(product.id)">В корзину</button>

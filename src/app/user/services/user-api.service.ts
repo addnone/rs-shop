@@ -29,7 +29,7 @@ export class UserApiService {
   }
 
   userInfo() {
-    return this.unauthorizedHandler(this.http.get<IUserInfo>('api/users/userInfo'));
+    return this.http.get<IUserInfo>('api/users/userInfo');
   }
 
   register(data: IUserRegister) {
@@ -37,7 +37,7 @@ export class UserApiService {
   }
 
   addToFavorites(id: string) {
-    return this.unauthorizedHandler(this.http.post('api/users/favorites', { id }));
+    return this.http.post('api/users/favorites', { id });
   }
 
   deleteFromFavorites(id: string) {
@@ -45,7 +45,7 @@ export class UserApiService {
   }
 
   addToCart(id: string) {
-    return this.unauthorizedHandler(this.http.post('api/users/cart', { id }));
+    return this.http.post('api/users/cart', { id });
   }
 
   deleteFromCart(id: string) {
