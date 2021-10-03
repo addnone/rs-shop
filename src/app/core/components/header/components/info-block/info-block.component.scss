@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  padding: 10px 100px;
+  justify-content: space-between;
+  height: 40px;
+  border-bottom: 1px solid rgb(212, 210, 210);
+}
+
+.contacts {
+  display: flex;
+}
+
+.work-time {
+  display: flex;
+  align-items: center;
+  margin-left: 14px;
+  color: #909399;
+}
+
+.work-time-text {
+  min-width: 74px;
+  margin-left: 2px;
+  font-size: 10px;
+  line-height: 14px;
+}

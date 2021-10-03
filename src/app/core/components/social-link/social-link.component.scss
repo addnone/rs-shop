@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(23,35,38,0.05);
+  margin: 0 3px;
+  // display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease-out;
+  background-color: white;
+}
+// ::ng-deep mat-icon.icon svg path  {
+//   fill: red;
+// }
+

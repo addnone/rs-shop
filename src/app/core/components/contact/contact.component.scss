@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.active-link:hover {
+  color: #E2546B
+}
+
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .mat-button-wrapper {
+  display: flex;
+  align-items: center ;
+}

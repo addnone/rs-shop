@@ -1,0 +1,31 @@
+<button mat-button [matMenuTriggerFor]="menu">Аккаунт</button>
+<mat-menu class="menu" #menu="matMenu">
+  <div class="menu-container">
+    <div class="user">
+      <div class="authorized-user" *ngIf="isLogin() | async">
+        <div class="user-info">
+          <div class="user-firstname">{{userInfo?.firstName}}</div>
+          <div class="user-secondname">{{userInfo?.lastName}}</div>
+        </div>
+        <button mat-button color="accent" (click)="onLogout()">
+          <mat-icon>exit_to_app</mat-icon>
+          Выйти
+        </button>
+      </div>
+      <div class="unauthorized-user" *ngIf="(isLogin() | async) === false">
+        <button mat-button (click)="openLoginDialog()">Войти</button>
+        <button mat-button>Зарегистрироваться</button>
+      </div>
+    </div>
+    <div class="control-block" *ngIf="(isLogin() | async)">
+      <button mat-menu-item>
+        <mat-icon>shopping_cart</mat-icon>
+        Корзина
+      </button>
+      <button mat-menu-item>
+        <mat-icon>reorder</mat-icon>
+        Заказы
+      </button>
+    </div>
+  </div>
+</mat-menu>

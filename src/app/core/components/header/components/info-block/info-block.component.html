@@ -1,0 +1,67 @@
+
+<button  mat-button color="primary">
+  <mat-icon>place</mat-icon>
+  City
+</button>
+
+<div class="contacts">
+  <app-contact
+  [icon]="'assets/core/header/info-block/viber.svg'"
+  [info]="'Viber'"
+  [link]="'https://www.viber.com/ru/'"
+  ></app-contact>
+
+  <app-contact
+  [icon]="'assets/core/header/info-block/a1.svg'"
+  [info]="'+375 29 302 10 21'"
+  [link]="''"
+  ></app-contact>
+
+  <button mat-menu-item [matMenuTriggerFor]="menu">Еще</button>
+<mat-menu #menu="matMenu">
+  <app-contact
+    [icon]="'assets/core/header/info-block/life.svg'"
+    [info]="'+375 25 502 10 21'"
+    [link]="''"
+  ></app-contact>
+
+  <app-contact
+    [icon]="'assets/core/header/info-block/home.svg'"
+    [info]="'+375 17 302 10 21'"
+    [link]="''"
+  ></app-contact>
+
+  <app-contact
+    [icon]="'assets/core/header/info-block/telegram.svg'"
+    [info]="'Telegram'"
+    [link]="'http://t.me/e21vekbot'"
+  ></app-contact>
+
+  <app-contact
+    [icon]="'assets/core/header/info-block/email.svg'"
+    [info]="'Mail'"
+    [link]="'mailto:21@21vek.by'"
+  ></app-contact>
+
+  <app-contact
+    [icon]="'assets/core/header/info-block/email.svg'"
+    [info]="'Write us'"
+    [link]="'21@21vek.by'"
+  ></app-contact>
+</mat-menu>
+
+<div class="work-time">
+  <mat-icon>access_time</mat-icon>
+  <div class="work-time-text-container">
+    <div class="work-time-text">
+      контакт-центр
+    </div>
+    <div class="work-time-text">
+      c 8:00 до 22:00
+    </div>
+  </div>
+</div>
+</div>
+
+
+

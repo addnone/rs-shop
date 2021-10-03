@@ -1,0 +1,46 @@
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.user {
+  height: 100px;
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: solid rgb(216, 216, 216);
+}
+
+.unauthorized-user {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.authorized-user {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-firstname {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.user-secondname {
+  margin-top: 5px;
+  font-weight: bold;
+}

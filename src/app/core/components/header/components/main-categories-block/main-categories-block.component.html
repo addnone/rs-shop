@@ -1,0 +1,3 @@
+<a mat-menu-item [routerLink]="['/categories']" [queryParams]="{ categoryId: category.id}" class="link" *ngFor="let category of categories">
+ <span class="text">{{category.name}}</span>
+</a>
